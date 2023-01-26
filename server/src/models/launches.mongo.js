@@ -23,12 +23,15 @@ const launchesSchema = new mongoose.Schema({
   },
   customers: [String],
   upcoming: {
-    type: boolean,
+    type: Boolean,
     required: true,
   },
   success: {
-    type: boolean,
+    type: Boolean,
     default: true,
     required: true,
   },
 });
+
+//connects launcheSchema with "launches" collection
+module.exports = mongoose.model("Launches", launchesSchema);

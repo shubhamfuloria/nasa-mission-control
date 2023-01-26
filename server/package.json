@@ -4,11 +4,14 @@
   "description": "a nasa mission control application server",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test-watch": "jest --watch",
     "start": "node src/server.js",
     "watch": "nodemon src/server.js",
     "cluster": "pm2 start src/server.js -i max"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "author": "shubham",
   "license": "ISC",
