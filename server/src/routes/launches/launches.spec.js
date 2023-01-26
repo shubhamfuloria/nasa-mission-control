@@ -15,7 +15,7 @@ describe("test launches api", () => {
   describe("test GET launches", () => {
     test("it should return response status code 200", async () => {
       const response = await request(app)
-        .get("/launches")
+        .get("/v1/launches")
         .expect(200)
         .expect("Content-Type", /json/);
       // expect(response.statusCode).toBe(200);
@@ -38,7 +38,7 @@ describe("test launches api", () => {
 
     test("It should respond with 201 success", async () => {
       const response = await request(app)
-        .post("/launches")
+        .post("/v1/launches")
         .send(completeLaunchData)
         .expect(201)
         .expect("Content-Type", /json/);
@@ -52,7 +52,7 @@ describe("test launches api", () => {
 
     test("it should check missing required properties", async () => {
       const response = await request(app)
-        .post("/launches")
+        .post("/v1/launches")
         .send(launchDataWithoutDate)
         .expect(400)
         .expect("Content-Type", /json/);
